@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.*;
-import model.Student;
+import model.*;
 
 /**
  * Servlet implementation class StudentServlet
@@ -41,6 +42,8 @@ public class StudentServlet extends HttpServlet {
 	      for(Student s : student) {
 	    	  msg+=s.toString()+"<br/>";
 	      }
+	      StudentDAO dao=new StudentDAO();
+	      dao.addArray(student);
 	      response.setContentType("text/html;charset=utf-8");
 		  response.getWriter().append(msg);
 	}
