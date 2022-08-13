@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Form</title>
+</head>
+<body>
+ 	 Student Name:<input type="text" name="name" id="userName" value="Alan"/><br/>
+     Age:<input type="text" name="age" id="userAge" value="20"/><br/>
+     <button onclick="add()">add</button>
+<form action="StudentServlet" method="post"  onsubmit="return createData();">
+     <input type="hidden" name="stuData"  id="stuData"/>
+     <button>Send To Server</button>
+</form>
+<script>
+		var stuArray=[ ];
+		function add(){
+			var n=document.getElementById("userName").value;
+			var a=parseInt(document.getElementById("userAge").value);
+			var obj={};
+			obj.name=n;
+			obj.age=a;        	
+			stuArray.push(obj)
+			var str=JSON.stringify(stuArray);
+			alert(str);
+		}
+        function createData(){
+        /*  var n=document.getElementById("userName").value;
+        	var a=parseInt(document.getElementById("userAge").value);
+        	var obj={};
+        	obj.name=n;
+        	obj.age=a;*/
+        	var st=JSON.stringify(stuArray);        	
+        	var data=document.getElementById("stuData");
+        	data.value=st;
+        	alert(data.value);
+        	return true;
+        }
+</script>
+</body>
+</html>
