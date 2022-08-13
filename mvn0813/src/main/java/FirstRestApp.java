@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 //path setting
-@ApplicationPath("services")
+@ApplicationPath("/services")
 public class FirstRestApp extends Application {
 
 
